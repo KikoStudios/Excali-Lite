@@ -13,8 +13,8 @@ ENV VITE_APP_DISABLE_TRACKING=true
 ENV VITE_APP_WS_SERVER_URL=http://localhost:3002
 
 RUN git clone -b "${VERSION}" "${GIT_REMOTE_PROJECT}" . && \
-  sed -i 's|"excalidraw.production.min": "./entry.js",|"excalidraw.production.min": "../../excalidraw-app/index.ts",|g' ./src/packages/excalidraw/webpack.prod.config.js && \
-  yarn --ignore-optional --network-timeout 600000
+    sed -i 's|"excalidraw.production.min": "./entry.js",|"excalidraw.production.min": "../../excalidraw-app/index.ts",|g' ./src/packages/excalidraw/webpack.prod.config.js && \
+    yarn --ignore-optional --network-timeout 600000
 
 RUN yarn build:app:docker
 
